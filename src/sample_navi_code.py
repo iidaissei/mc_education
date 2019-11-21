@@ -66,10 +66,11 @@ import sys
 from yaml import load
 
 #コード例
+#文字列をパラメータの/location_dictから検索して位置座標を返す
 def searchLocationName(target_name):
     rospy.loginfo("Search LocationName")
-    #LocationListのyamlファイルを読み込む
-    f = open('/home/athome/catkin_ws/src/mimi_common_pkg/config/location_dict.yaml')
+    #location_dictのyamlファイルを読み込む
+    f = open('/home/issei/catkin_ws/src/mimi_common_pkg/config/location_dict.yaml')
     location_dict = load(f)
     f.close()
     if target_name in location_dict:
@@ -77,5 +78,5 @@ def searchLocationName(target_name):
         rospy.loginfo("Retrun location_dict")
         return location_dict[target_name]
     else:
-        rospy.loginfo("Not found <" + target_name + "> in LocationDict")
+        rospy.loginfo("Not found <" + target_name + "> in location_dict")
         return 'faild'
